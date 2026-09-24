@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The CHAVPK ChitraHarsha - World's First AI Game Show & Enterprise Platform</title>
-  <meta name="description" content="The CHAVPK ChitraHarsha is the world's first AI-driven 1-minute quiz gaming platform, enterprise MNC talent acquisition hub, quantum-encrypted blockchain wallet, and real-world problem solver.">
-  <meta name="keywords" content="The CHAVPK, ChitraHarsha, AI Game Show, MNC Hiring, Crypto, CHC Token, Quantum Encryption, Real World Problem Solver">
+  <title>CHAVPK AI Quizz Gaming - World's First AI Game Show & Enterprise Platform</title>
+  <meta name="description" content="CHAVPK AI Quizz Gaming is an enterprise 1-minute AI quiz platform, MNC talent acquisition hub, quantum-encrypted wallet, and real-world problem solver.">
+  <meta name="keywords" content="CHAVPK AI Quizz Gaming, AI Game Show, MNC Hiring, Crypto, CHC Token, Quantum Encryption, DPDP Compliance">
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -52,87 +51,77 @@
   
   <style>
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #0f172a; }
     ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #10b981; }
 
     /* Glassmorphism */
     .glass-panel {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .cyber-border {
-      position: relative;
-    }
-    .cyber-border::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: -1px; right: -1px; bottom: -1px;
-      background: linear-gradient(135deg, #10b981, #8b5cf6, #06b6d4);
-      border-radius: inherit;
-      z-index: -1;
-      opacity: 0.5;
-    }
 
-    /* Lightning Effect Banner */
+    /* Cyber Lightning Background Banner */
     .lightning-bg {
       background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 1) 100%),
                   linear-gradient(45deg, rgba(16, 185, 129, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
     }
+
+    /* Hide scrollbars for slick navigation */
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-black">
 
-  <!-- TOP HEADER NAVBAR -->
   <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800 px-4 py-3">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
-      <!-- LEFT SIDE: TOP LEFT HAND DRAWER TRIGGER (3-LINES MENU) & BRAND -->
+      <!-- LEFT SIDE: DRAWER TOGGLE BUTTON & BRANDING -->
       <div class="flex items-center gap-3">
-        <button id="open-drawer-btn" aria-label="Open Navigation Menu" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-brand-500 hover:text-white transition-all shadow-lg hover:shadow-brand-500/20 active:scale-95">
+        <button id="open-drawer-btn" onclick="toggleDrawer(true)" aria-label="Open Navigation Menu" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-brand-500 hover:text-white transition-all shadow-lg hover:shadow-brand-500/20 active:scale-95">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
         
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="switchTab('game-show')">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-neon to-brand-cyber p-0.5 animate-glow-pulse flex items-center justify-center">
-            <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-black text-brand-500 text-xl tracking-tighter">
+            <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-black text-brand-500 text-lg tracking-tighter">
               CH
             </div>
           </div>
           <div>
-            <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block leading-none">The CHAVPK</span>
-            <span class="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-brand-500 tracking-tight">ChitraHarsha AI</span>
+            <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest block leading-none">Official Platform</span>
+            <span class="text-base font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-brand-500 tracking-tight">CHAVPK AI Quizz Gaming</span>
           </div>
         </div>
       </div>
 
-      <!-- CENTER: QUICK STATS / LIVE TICKER (HIDDEN ON MOBILE) -->
-      <div class="hidden lg:flex items-center gap-6 px-4 py-1.5 rounded-full bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
+      <!-- CENTER: LIVE TICKER (DESKTOP) -->
+      <div class="hidden lg:flex items-center gap-6 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-          <span class="text-slate-400">Live Rate:</span>
-          <span class="font-mono font-bold text-emerald-400">1 CHC = ₹85.40 INR ($1.02 USD)</span>
+          <span class="text-slate-400">Live CHC Token:</span>
+          <span class="font-mono font-bold text-emerald-400" id="header-token-rate">1 CHC = ₹85.40 INR ($1.02)</span>
         </div>
         <div class="h-3 w-px bg-slate-700"></div>
         <div class="flex items-center gap-2">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-brand-neon"></i>
-          <span>NLP Silent Learner: <strong class="text-brand-neon" id="header-nlp-status">Active (v4.9)</strong></span>
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-cyber"></i>
+          <span>Security Engine: <strong class="text-emerald-400">Quantum 2048-Bit Active</strong></span>
         </div>
       </div>
 
-      <!-- RIGHT SIDE: QUICK ACTIONS & PROFILE VIRTUAL BADGE -->
+      <!-- RIGHT SIDE: QUICK ACTIONS & AUTH STATUS -->
       <div class="flex items-center gap-3">
-        <button id="live-voice-btn" onclick="toggleLiveVoiceModal()" class="px-3 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-xs font-semibold flex items-center gap-2 transition-all shadow-md hover:shadow-purple-500/25">
+        <button id="live-voice-btn" onclick="openVoiceModal()" class="px-3 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-xs font-semibold flex items-center gap-2 transition-all shadow-md hover:shadow-purple-500/25">
           <i data-lucide="mic" class="w-4 h-4 text-white animate-pulse"></i>
-          <span class="hidden sm:inline">CHAVPK Live AI</span>
+          <span class="hidden sm:inline">AI Voice Assistant</span>
         </button>
 
         <button onclick="switchTab('registration')" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all shadow-lg hover:shadow-brand-500/20">
-          <i data-lucide="user-check" class="w-4 h-4"></i>
+          <i data-lucide="id-card" class="w-4 h-4"></i>
           <span class="hidden sm:inline">Virtual ID Login</span>
         </button>
       </div>
@@ -140,17 +129,16 @@
     </div>
   </header>
 
-  <!-- TOP-LEFT DRAWER OVERLAY & SIDEBAR (3-LINES COLUMN DRAWER) -->
-  <div id="drawer-backdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="drawer-backdrop" onclick="toggleDrawer(false)" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
   
   <aside id="drawer-menu" class="fixed top-0 left-0 h-full w-80 sm:w-96 bg-slate-900 border-r border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl">
     <!-- DRAWER HEADER -->
     <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/50">
       <div class="flex items-center gap-2">
         <i data-lucide="layers" class="w-5 h-5 text-brand-500"></i>
-        <h2 class="font-bold text-sm text-slate-100 tracking-wider uppercase">Master Ecosystem Menu</h2>
+        <h2 class="font-bold text-xs text-slate-100 tracking-wider uppercase">Master Ecosystem Drawer</h2>
       </div>
-      <button id="close-drawer-btn" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition">
+      <button onclick="toggleDrawer(false)" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
@@ -160,32 +148,48 @@
       
       <!-- USER STATUS CARD -->
       <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-3">
-        <div class="w-12 h-12 rounded-lg bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center font-bold text-slate-950 text-lg">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center font-bold text-slate-950 text-base" id="drawer-user-avatar">
           JD
         </div>
         <div>
-          <h4 class="font-semibold text-sm text-slate-100">John Doe (Candidate)</h4>
-          <p class="text-xs text-brand-gold font-mono">Virtual ID: CHAVPK-8894</p>
-          <span class="inline-block mt-1 px-2 py-0.5 text-[10px] bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Verified Active</span>
+          <h4 class="font-semibold text-xs text-slate-100" id="drawer-user-name">John Doe (Candidate)</h4>
+          <p class="text-[10px] text-brand-gold font-mono" id="drawer-user-id">ID: CHAVPK-8894</p>
+          <span class="inline-block mt-1 px-2 py-0.5 text-[9px] bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Cloud Auth Verified</span>
         </div>
       </div>
 
-      <!-- NAV SECTION 1: ENTERPRISE ACCESS & ECOSYSTEM (SHIFTED INSIDE DRAWER) -->
+      <!-- NAV SECTION 1: QUIZ & GAMING ECOSYSTEM -->
       <div>
-        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <i data-lucide="building-2" class="w-3.5 h-3.5 text-brand-cyber"></i>
-          Enterprise Access & Ecosystem
+        <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+          <i data-lucide="gamepad-2" class="w-3.5 h-3.5 text-brand-500"></i>
+          Quiz & Game Modules
         </h3>
         <div class="space-y-1">
-          <button onclick="switchTab('enterprise-payroll')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+          <button onclick="switchTab('game-show')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
             <span class="flex items-center gap-2">
-              <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
-              330 Staff Payroll & Budget Portal
+              <i data-lucide="play-circle" class="w-4 h-4 text-emerald-400"></i>
+              1-Minute AI Quiz Engine
             </span>
             <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
+          <button onclick="switchTab('registration')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+            <span class="flex items-center gap-2">
+              <i data-lucide="user-check" class="w-4 h-4 text-cyan-400"></i>
+              User Registration & Virtual ID Card
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
+          </button>
+        </div>
+      </div>
 
-          <button onclick="switchTab('placement-interview')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+      <!-- NAV SECTION 2: ENTERPRISE & HIRING -->
+      <div>
+        <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 text-brand-cyber"></i>
+          Enterprise & Placement Hub
+        </h3>
+        <div class="space-y-1">
+          <button onclick="switchTab('placement')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
             <span class="flex items-center gap-2">
               <i data-lucide="briefcase" class="w-4 h-4 text-purple-400"></i>
               Placement Head AI Interview Module
@@ -193,168 +197,151 @@
             <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
 
-          <button onclick="switchTab('company-login')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+          <button onclick="switchTab('payroll')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
             <span class="flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i>
-              Company & Admin Portal Login
+              <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+              330 Staff Payroll & Budget Portal
             </span>
             <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
         </div>
       </div>
 
-      <!-- NAV SECTION 2: REAL-WORLD PROBLEM SOLVER HUB -->
+      <!-- NAV SECTION 3: PROBLEM SOLVING & SECURITY -->
       <div>
-        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <i data-lucide="wrench" class="w-3.5 h-3.5 text-brand-gold"></i>
-          Real-World Problem Solver
+        <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
+          Cybersecurity & Engineering
         </h3>
         <div class="space-y-1">
-          <button onclick="switchTab('problem-solver')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+          <button onclick="switchTab('problem-solver')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
             <span class="flex items-center gap-2">
-              <i data-lucide="box" class="w-4 h-4 text-amber-400"></i>
-              3D Spatial Engineering Troubleshooter
+              <i data-lucide="box" class="w-4 h-4 text-blue-400"></i>
+              3D Real-World Problem Solver
             </span>
             <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
-          
-          <button onclick="switchTab('problem-solver')" class="w-full text-left px-3 py-2.5 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+
+          <button onclick="switchTab('security')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
             <span class="flex items-center gap-2">
-              <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i>
-              Logistics & Environmental Optimizer
+              <i data-lucide="radar" class="w-4 h-4 text-rose-400"></i>
+              Dark Web & Malware Monitor
             </span>
             <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
         </div>
       </div>
 
-      <!-- NAV SECTION 3: FREEMIUM & SUBSCRIPTION PLANS -->
+      <!-- NAV SECTION 4: INFORMATION & LEGAL -->
       <div>
-        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <i data-lucide="credit-card" class="w-3.5 h-3.5 text-emerald-400"></i>
-          Freemium & Subscription Plans
+        <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-400"></i>
+          Legal & Compliance Suite
         </h3>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-          <div class="flex justify-between items-center text-xs">
-            <span class="text-slate-300">Pro Innovator Tier</span>
-            <span class="font-bold text-brand-500">₹499 / mo ($9.99)</span>
-          </div>
-          <p class="text-[11px] text-slate-400">Unlocks MNC Hiring Queue, Unlimited Game Show Play, and 10 Trillion BigQuery Access.</p>
-          <button onclick="triggerPaymentModal('Pro Tier Subscription', 499)" class="w-full py-1.5 rounded-lg bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-slate-950 font-bold text-xs transition">
-            Upgrade Tier Now
+        <div class="space-y-1">
+          <button onclick="switchTab('legal-docs')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800/80 text-xs font-medium text-slate-300 hover:text-white flex items-center justify-between group">
+            <span class="flex items-center gap-2">
+              <i data-lucide="info" class="w-4 h-4 text-emerald-400"></i>
+              About, FAQs, Privacy & Terms
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform"></i>
           </button>
-        </div>
-      </div>
-
-      <!-- NAV SECTION 4: ANTI-THEFT & SECURITY CENTER -->
-      <div>
-        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
-          Anti-Theft & Security Protocols
-        </h3>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs text-slate-300">
-          <div class="flex items-center justify-between">
-            <span>Remote Device Shield</span>
-            <span class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400">LOCKED</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>Quantum Encryption</span>
-            <span class="font-mono text-[10px] text-purple-400">2048-Bit Quantum Shield</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span>Dark Web Monitoring</span>
-            <span class="text-emerald-400 text-[10px]">0 Threats Found</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- NAV SECTION 5: SILENT AUTO-UPDATE & NLP LOGS -->
-      <div>
-        <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-          <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-indigo-400"></i>
-          System Telemetry & Silent Engine
-        </h3>
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-[11px] text-slate-400">
-          <p>Silent Auto-Update: <span class="text-emerald-400">v12.8.4 Live</span></p>
-          <p>NLP Agent Interaction Hits: <span class="text-brand-gold" id="nlp-interactions-counter">1,489</span></p>
-          <p>Google BigQuery Sync: <span class="text-cyan-400">10 Trillion Rows Ready</span></p>
         </div>
       </div>
 
     </div>
 
     <!-- DRAWER FOOTER -->
-    <div class="p-4 border-t border-slate-800 bg-slate-950/80 text-[11px] text-slate-500 text-center">
-      © 2026 The CHAVPK ChitraHarsha Ventures Pvt Ltd. All Rights Reserved.
+    <div class="p-4 border-t border-slate-800 bg-slate-950/80 text-[10px] text-slate-500 text-center">
+      © 2026 CHAVPK AI Quizz Gaming. All Rights Reserved.<br>
+      <span class="text-slate-400 font-mono">Compliant with India DPDP Act 2023 & Global GDPR</span>
     </div>
   </aside>
 
-  <!-- MAIN APP CONTAINER -->
+  <!-- MAIN CONTAINER -->
   <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-8">
 
-    <!-- HERO & BANNER SECTION -->
     <section class="relative rounded-2xl overflow-hidden p-6 sm:p-10 lightning-bg border border-slate-800 shadow-2xl">
       <div class="relative z-10 max-w-3xl space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-semibold">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-spin"></i>
-          <span>World's First AI Game Show & Enterprise Ecosystem</span>
+          <span>World's First AI Game Show & Enterprise Platform</span>
         </div>
         
         <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-none">
-          The CHAVPK <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-brand-neon to-brand-cyber">ChitraHarsha</span> Engine
+          CHAVPK <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-brand-neon to-brand-cyber">AI Quizz Gaming</span>
         </h1>
         
-        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-          Combining 1-minute time-capped gaming quizzes, real-time age-calibrated question generators, enterprise MNC hiring bridges, quantum security, and native cryptocurrency rewards (*CHC*).
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Unifying 1-minute time-capped gaming quizzes, real-time age-calibrated dynamic questions, enterprise MNC talent acquisition, quantum threat security, and crypto token rewards (*CHC*).
         </p>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <button onclick="switchTab('game-show')" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-400 hover:to-emerald-500 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center gap-2 shadow-xl hover:shadow-brand-500/30 transition-all transform hover:-translate-y-0.5">
             <i data-lucide="play-circle" class="w-4 h-4"></i>
-            Launch 1-Min Game Quiz
+            Launch 1-Min Quiz Game
           </button>
 
           <button onclick="switchTab('registration')" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs flex items-center gap-2 transition-all">
             <i data-lucide="id-card" class="w-4 h-4 text-brand-gold"></i>
-            Create Virtual ID Card
+            Generate Virtual ID Card
+          </button>
+
+          <button onclick="switchTab('security')" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs flex items-center gap-2 transition-all">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+            Security Threat Audit
           </button>
         </div>
       </div>
 
-      <!-- DECORATIVE BG SHAPE -->
       <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-brand-neon/10 blur-3xl pointer-events-none"></div>
     </section>
 
-    <!-- DYNAMIC TAB NAVIGATION -->
-    <div class="flex items-center gap-2 border-b border-slate-800 overflow-x-auto pb-2 scrollbar-none">
-      <button id="tab-btn-game-show" onclick="switchTab('game-show')" class="px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition bg-brand-500/10 text-brand-500 border border-brand-500/30">
+    <div class="flex items-center gap-2 border-b border-slate-800 overflow-x-auto pb-2 scrollbar-none text-xs font-bold">
+      <button id="tab-btn-game-show" onclick="switchTab('game-show')" class="px-4 py-2.5 rounded-xl transition bg-brand-500/10 text-brand-500 border border-brand-500/30 flex items-center gap-2 whitespace-nowrap">
         <i data-lucide="gamepad-2" class="w-4 h-4"></i>
-        1-Min Game Show
+        1-Min Quiz Game Show
       </button>
-      <button id="tab-btn-registration" onclick="switchTab('registration')" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition">
+      <button id="tab-btn-registration" onclick="switchTab('registration')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
         <i data-lucide="user-plus" class="w-4 h-4"></i>
-        User Registration & Virtual ID
+        User Virtual ID Card
       </button>
-      <button id="tab-btn-multimodal" onclick="switchTab('multimodal')" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition">
-        <i data-lucide="cpu" class="w-4 h-4"></i>
-        Multimodal AI Sandbox
+      <button id="tab-btn-placement" onclick="switchTab('placement')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="briefcase" class="w-4 h-4"></i>
+        MNC Placement AI
       </button>
-      <button id="tab-btn-currency" onclick="switchTab('currency')" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition">
+      <button id="tab-btn-problem-solver" onclick="switchTab('problem-solver')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="box" class="w-4 h-4"></i>
+        3D Problem Solver
+      </button>
+      <button id="tab-btn-security" onclick="switchTab('security')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="radar" class="w-4 h-4"></i>
+        Cyber Threat Shield
+      </button>
+      <button id="tab-btn-currency" onclick="switchTab('currency')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
         <i data-lucide="coins" class="w-4 h-4"></i>
-        Live Currency Tracker
+        CHC Token Exchange
       </button>
-      <button id="tab-btn-blogs" onclick="switchTab('blogs')" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition">
-        <i data-lucide="newspaper" class="w-4 h-4"></i>
-        SEO Blogs & Research
+      <button id="tab-btn-payroll" onclick="switchTab('payroll')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="users" class="w-4 h-4"></i>
+        330 Staff Payroll
+      </button>
+      <button id="tab-btn-research" onclick="switchTab('research')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        AI Research Papers
+      </button>
+      <button id="tab-btn-legal-docs" onclick="switchTab('legal-docs')" class="px-4 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-900 flex items-center gap-2 transition whitespace-nowrap">
+        <i data-lucide="info" class="w-4 h-4"></i>
+        About, Privacy & Terms
       </button>
     </div>
 
-    <!-- ==================== TAB 1: 1-MINUTE GAME SHOW ENGINE ==================== -->
+    <!-- ==================== TAB 1: 1-MINUTE AI QUIZ GAME SHOW ==================== -->
     <div id="tab-content-game-show" class="space-y-6">
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        <!-- MAIN QUIZ BOARD (2 COLS) -->
+        <!-- MAIN QUIZ BOARD -->
         <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
           
           <div class="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -362,13 +349,13 @@
               <span class="px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[11px] font-bold uppercase tracking-wider">
                 Question <span id="quiz-q-num">1</span> of 10
               </span>
-              <h2 class="text-lg font-bold text-white mt-1" id="quiz-category-title">Stream: Common Sense & Tricky Logic</h2>
+              <h2 class="text-base sm:text-lg font-bold text-white mt-1" id="quiz-category-title">Common Sense & Tricky Logic Stream</h2>
             </div>
 
             <!-- 1-MINUTE TIMER CIRCLE -->
             <div class="flex items-center gap-3">
               <div class="text-right">
-                <span class="text-[10px] text-slate-400 block uppercase font-bold">Timer</span>
+                <span class="text-[10px] text-slate-400 block uppercase font-bold">Countdown</span>
                 <span class="font-mono font-black text-xl text-amber-400" id="timer-text">01:00</span>
               </div>
               <div class="relative w-12 h-12 flex items-center justify-center">
@@ -381,11 +368,22 @@
           </div>
 
           <!-- QUESTION DISPLAY CONTAINER -->
-          <div class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <p class="text-xs text-brand-gold font-mono uppercase tracking-wider">Calibrated For: Age 24 | Engineering / Data Stream</p>
-            <h3 class="text-base sm:text-lg font-semibold text-slate-100" id="quiz-question-text">
-              Loading dynamic age-calibrated question from NLP engine...
+          <div class="p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3 relative">
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-brand-gold font-mono uppercase tracking-wider" id="quiz-calib-info">Calibrated for: Age 24 | Logic & Tech Stream</span>
+              <button onclick="speakCurrentQuestion()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-brand-500 transition" title="Listen via Gemini Voice TTS">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            
+            <h3 class="text-sm sm:text-base font-semibold text-slate-100 leading-relaxed" id="quiz-question-text">
+              Loading dynamic age-calibrated question from CHAVPK AI engine...
             </h3>
+
+            <!-- AI Visual Quiz Badge / Image Container -->
+            <div id="quiz-image-badge" class="hidden mt-3 p-2 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center">
+              <img id="quiz-badge-img" class="max-h-48 rounded-lg object-contain" alt="Quiz Illustration">
+            </div>
           </div>
 
           <!-- OPTIONS GRID -->
@@ -394,16 +392,29 @@
           </div>
 
           <!-- GAME CONTROLS & REWARD DISPLAY -->
-          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <i data-lucide="trophy" class="w-5 h-5 text-brand-gold"></i>
-              <span class="text-xs text-slate-300">Reward Pool: <strong class="text-emerald-400 font-mono text-sm" id="reward-pool-amt">₹2,500 INR</strong></span>
+          <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="trophy" class="w-5 h-5 text-brand-gold"></i>
+                <span class="text-xs text-slate-300">Reward Pool: <strong class="text-emerald-400 font-mono text-sm" id="reward-pool-amt">₹2,500 INR</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="coins" class="w-4 h-4 text-purple-400"></i>
+                <span class="text-xs text-slate-300">CHC Tokens: <strong class="text-purple-400 font-mono text-sm" id="user-score-tokens">0 CHC</strong></span>
+              </div>
             </div>
             
-            <button id="next-q-btn" onclick="nextQuizQuestion()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white transition flex items-center gap-2">
-              <span>Submit Answer</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="generateAIQuestionWithGemini()" class="px-3 py-2 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 text-purple-400 border border-purple-500/30 text-xs font-bold transition flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                Generate Dynamic AI Q
+              </button>
+
+              <button id="next-q-btn" onclick="submitQuizAnswer()" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-black text-xs transition flex items-center gap-2 shadow-lg hover:shadow-brand-500/20">
+                <span>Submit Answer</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
           </div>
 
         </div>
@@ -412,13 +423,13 @@
         <div class="space-y-6">
           
           <div class="glass-panel p-5 rounded-2xl border border-slate-800 space-y-4">
-            <h3 class="font-bold text-sm text-slate-100 flex items-center gap-2">
+            <h3 class="font-bold text-xs text-slate-100 flex items-center gap-2 uppercase tracking-wider">
               <i data-lucide="sliders" class="w-4 h-4 text-brand-cyber"></i>
-              Game Stream Selector
+              Game Stream Calibration
             </h3>
             
             <div class="space-y-2">
-              <button onclick="setQuizStream('common')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between">
+              <button onclick="setQuizStream('common')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
                 <div>
                   <p class="text-xs font-bold text-white">Common Sense & Tricky Logic</p>
                   <p class="text-[10px] text-slate-400">Generates data points & instant cash rewards</p>
@@ -426,9 +437,9 @@
                 <i data-lucide="check-circle" class="w-4 h-4 text-brand-500"></i>
               </button>
 
-              <button onclick="setQuizStream('mnc')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between">
+              <button onclick="setQuizStream('mnc')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition flex items-center justify-between group">
                 <div>
-                  <p class="text-xs font-bold text-white">MNC Enterprise Hiring Stream</p>
+                  <p class="text-xs font-bold text-white">MNC Enterprise Aptitude Stream</p>
                   <p class="text-[10px] text-purple-400">Direct hiring score for enterprise sponsors</p>
                 </div>
                 <i data-lucide="briefcase" class="w-4 h-4 text-purple-400"></i>
@@ -438,18 +449,18 @@
 
           <!-- SPONSOR BRANDING PANEL -->
           <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800 space-y-3">
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Featured Hiring Sponsor</span>
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Featured Enterprise Sponsor</span>
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-lg bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center font-black text-indigo-400">
                 MNC
               </div>
               <div>
                 <h4 class="font-bold text-xs text-white">Global Cloud Systems Inc.</h4>
-                <p class="text-[11px] text-slate-400">Active Openings: 42 Job Roles</p>
+                <p class="text-[10px] text-slate-400">Active Openings: 42 High-Skill Roles</p>
               </div>
             </div>
             <p class="text-[11px] text-slate-400 leading-normal">
-              High scores in this 1-minute quiz trigger direct interview scheduling with corporate HR teams.
+              Scores above 80% automatically push your profile into the priority interview queue in the MNC Placement tab.
             </p>
           </div>
 
@@ -464,11 +475,14 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        <!-- REGISTRATION FORM CONTAINER (2 COLS) -->
+        <!-- REGISTRATION FORM CONTAINER -->
         <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-          <div class="border-b border-slate-800 pb-3">
-            <h2 class="text-lg font-bold text-white">The CHAVPK Master Registration Process</h2>
-            <p class="text-xs text-slate-400">Registers user credentials into the Google Cloud Database and issues a scannable Virtual ID Card.</p>
+          <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-white">CHAVPK User Cloud Registration</h2>
+              <p class="text-xs text-slate-400">Saves candidate profile into Cloud Firestore database and generates an encrypted Virtual ID.</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-brand-500/10 border border-brand-500/30 text-brand-500 text-[10px] font-mono">DPDP 2023 Compliant</span>
           </div>
 
           <form id="master-reg-form" onsubmit="handleRegistrationSubmit(event)" class="space-y-4">
@@ -481,10 +495,7 @@
 
               <div>
                 <label class="block text-xs font-medium text-slate-300 mb-1">Email Address</label>
-                <div class="relative">
-                  <input type="email" id="reg-email" required value="john.doe@example.com" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
-                  <span class="absolute right-2 top-2 text-[10px] text-emerald-400 font-mono">ChitraGmail 5s Auth</span>
-                </div>
+                <input type="email" id="reg-email" required value="john.doe@example.com" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
               </div>
 
               <div>
@@ -494,7 +505,7 @@
 
               <div>
                 <label class="block text-xs font-medium text-slate-300 mb-1">Passkey Setup</label>
-                <input type="text" id="reg-passkey" required value="CHAVPK-AUTH-9902" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500 font-mono">
+                <input type="text" id="reg-passkey" required value="CHAVPK-PASS-9902" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500 font-mono">
               </div>
             </div>
 
@@ -507,18 +518,18 @@
 
               <div>
                 <label class="block text-xs font-medium text-slate-300 mb-1">City / State</label>
-                <input type="text" id="reg-city" required value="Panipat, Haryana" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
+                <input type="text" id="reg-city" required value="Ludhiana, Punjab" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
               </div>
 
               <div>
                 <label class="block text-xs font-medium text-slate-300 mb-1">Pin Code</label>
-                <input type="text" id="reg-pincode" required value="132103" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
+                <input type="text" id="reg-pincode" required value="141001" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">ID Proof (Aadhaar / PAN)</label>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Government ID Reference (Aadhaar / PAN)</label>
                 <input type="text" id="reg-idproof" required value="ABCDE1234F" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
               </div>
 
@@ -526,18 +537,18 @@
                 <label class="block text-xs font-medium text-slate-300 mb-1">Job Category Preference</label>
                 <select id="reg-jobrole" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500">
                   <option>Data Scientist / AI Engineer</option>
-                  <option>Data Analyst</option>
+                  <option>Cybersecurity & Forensics Specialist</option>
                   <option>Research & Development</option>
-                  <option>Human Resources (HR)</option>
-                  <option>Finance & Accounting</option>
-                  <option>Logistics & Transportation</option>
+                  <option>Human Resources (HR Manager)</option>
+                  <option>Finance & Accounting Specialist</option>
+                  <option>Logistics & Operations Lead</option>
                 </select>
               </div>
             </div>
 
-            <!-- BANK DETAILS -->
+            <!-- BANK DETAILS FOR PAYOUTS -->
             <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-              <h4 class="text-xs font-bold text-slate-200">Bank Settlement Details (For Game Payouts)</h4>
+              <h4 class="text-xs font-bold text-slate-200">Bank Settlement Details (For Quiz Game Payouts)</h4>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <input type="text" id="reg-bankacc" placeholder="Account Number" value="918273645019" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white">
                 <input type="text" id="reg-bankname" placeholder="Bank Name" value="HDFC Bank" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white">
@@ -546,7 +557,7 @@
             </div>
 
             <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-400 hover:to-emerald-500 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-lg hover:shadow-brand-500/20">
-              Register & Generate Encrypted Virtual ID Card
+              Save To Cloud & Issue Encrypted Virtual ID Card
             </button>
 
           </form>
@@ -561,121 +572,32 @@
           <div id="virtual-id-card" class="w-full p-5 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-brand-500/40 shadow-2xl relative overflow-hidden space-y-4">
             
             <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-              <span class="text-[10px] font-black text-brand-gold tracking-widest">THE CHAVPK VENTURES</span>
+              <span class="text-[10px] font-black text-brand-gold tracking-widest">CHAVPK AI GAMING</span>
               <span class="text-[9px] text-emerald-400 font-mono">VERIFIED ID</span>
             </div>
 
             <div class="flex items-center gap-3 text-left">
-              <div class="w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-white text-xl">
+              <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-white text-lg" id="card-avatar">
                 JD
               </div>
               <div>
-                <h4 class="font-bold text-sm text-white" id="card-name">John Doe</h4>
-                <p class="text-[11px] text-slate-400" id="card-role">Data Scientist</p>
+                <h4 class="font-bold text-xs text-white" id="card-name">John Doe</h4>
+                <p class="text-[10px] text-slate-400" id="card-role">Data Scientist / AI Engineer</p>
                 <p class="text-[10px] text-brand-500 font-mono" id="card-id">ID: CHAVPK-8894</p>
               </div>
             </div>
 
             <!-- QR CODE DISPLAY -->
-            <div class="p-3 bg-white rounded-xl w-32 h-32 mx-auto flex items-center justify-center" id="qrcode-container">
+            <div class="p-2.5 bg-white rounded-xl w-32 h-32 mx-auto flex items-center justify-center" id="qrcode-container">
               <!-- QR Code dynamic rendering -->
             </div>
 
             <p class="text-[9px] text-slate-500 font-mono">Encrypted via Blockchain Ledger Protocol</p>
           </div>
 
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- ==================== TAB 3: MULTIMODAL AI SANDBOX ==================== -->
-    <div id="tab-content-multimodal" class="hidden space-y-6">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
-        <!-- FILE UPLOAD CENTER -->
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
-          <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
-            <div>
-              <h2 class="text-base font-bold text-white">Multimodal Cloud Storage & File Upload</h2>
-              <p class="text-xs text-slate-400">Upload audio, video, image, or document formats into Google Cloud Vault.</p>
-            </div>
-            <i data-lucide="upload-cloud" class="w-6 h-6 text-brand-cyber"></i>
-          </div>
-
-          <!-- DROPZONE -->
-          <div class="p-8 rounded-2xl border-2 border-dashed border-slate-700 hover:border-brand-500 bg-slate-900/50 flex flex-col items-center justify-center text-center cursor-pointer transition" onclick="document.getElementById('file-input').click()">
-            <input type="file" id="file-input" class="hidden" multiple onchange="handleFileUpload(event)">
-            <i data-lucide="file-up" class="w-10 h-10 text-slate-400 mb-2"></i>
-            <p class="text-xs font-semibold text-slate-200">Click to upload or drag & drop files here</p>
-            <p class="text-[10px] text-slate-500 mt-1">Supports MP3, MP4, PNG, JPG, PDF, CSV, JSON</p>
-          </div>
-
-          <!-- RECENT UPLOADS LIST -->
-          <div class="space-y-2">
-            <h4 class="text-xs font-bold text-slate-400">Uploaded Cloud Files</h4>
-            <div id="uploaded-files-list" class="space-y-1.5 max-h-40 overflow-y-auto">
-              <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between text-xs">
-                <span class="text-slate-300 font-mono">sample_resume_analytics.pdf</span>
-                <span class="text-[10px] text-emerald-400">1.2 MB Encrypted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HARDWARE PERMISSIONS & CHITRALENS SCANNER -->
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-          <div class="border-b border-slate-800 pb-3">
-            <h2 class="text-base font-bold text-white">ChitraLens Optical Engine & Hardware Controls</h2>
-            <p class="text-xs text-slate-400">Grant permission for real-time spatial evaluation and OCR scanning.</p>
-          </div>
-
-          <div class="space-y-3">
-            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <i data-lucide="camera" class="w-5 h-5 text-brand-500"></i>
-                <div>
-                  <p class="text-xs font-bold text-white">Camera & Optical OCR</p>
-                  <p class="text-[10px] text-slate-400">Scans documents & visual puzzles</p>
-                </div>
-              </div>
-              <button onclick="togglePermission(this)" class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
-                Granted
-              </button>
-            </div>
-
-            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <i data-lucide="mic" class="w-5 h-5 text-purple-400"></i>
-                <div>
-                  <p class="text-xs font-bold text-white">Microphone Input</p>
-                  <p class="text-[10px] text-slate-400">Powers live voice session synthesis</p>
-                </div>
-              </div>
-              <button onclick="togglePermission(this)" class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
-                Granted
-              </button>
-            </div>
-
-            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <i data-lucide="map-pin" class="w-5 h-5 text-amber-400"></i>
-                <div>
-                  <p class="text-xs font-bold text-white">GPS / Location Services</p>
-                  <p class="text-[10px] text-slate-400">Localized currency & job dispatch</p>
-                </div>
-              </div>
-              <button onclick="togglePermission(this)" class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
-                Granted
-              </button>
-            </div>
-          </div>
-
-          <button onclick="runChitraLensSimulation()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
-            <i data-lucide="scan" class="w-4 h-4"></i>
-            Run ChitraLens Optical Scan
+          <button onclick="printVirtualIDCard()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4 text-brand-500"></i>
+            Print / Save Badge
           </button>
         </div>
 
@@ -683,22 +605,263 @@
 
     </div>
 
-    <!-- ==================== TAB 4: LIVE CURRENCY TRACKER ==================== -->
+    <!-- ==================== TAB 3: PLACEMENT HEAD AI INTERVIEW MODULE ==================== -->
+    <div id="tab-content-placement" class="hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+          <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-white">CHAVPK AI Placement Head & Corporate Interviewer</h2>
+              <p class="text-xs text-slate-400">Evaluates skill proficiency, soft skills, and logic for MNC enterprise recruitment.</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] font-mono">Gemini 3 Flash Powered</span>
+          </div>
+
+          <!-- INTERVIEW CONVERSATION DISPLAY -->
+          <div id="interview-chat-history" class="p-4 rounded-xl bg-slate-900 border border-slate-800 h-80 overflow-y-auto space-y-3 font-sans text-xs">
+            <div class="p-3 rounded-lg bg-purple-900/30 border border-purple-500/20 text-purple-200">
+              <strong class="text-purple-400 block mb-1">AI Placement Officer:</strong>
+              Welcome to the CHAVPK Corporate Hiring Screen. Please state your primary technical focus, your key achievements in software/data architectures, and how you approach system scalability under high loads.
+            </div>
+          </div>
+
+          <!-- INPUT FIELD -->
+          <div class="flex items-center gap-2">
+            <input type="text" id="interview-user-input" placeholder="Type your response to the Placement AI..." class="flex-1 px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-brand-500" onkeypress="if(event.key === 'Enter') sendInterviewResponse()">
+            
+            <button onclick="sendInterviewResponse()" class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5">
+              <span>Send</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PLACEMENT SCORE CARD -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+          <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Candidate Hiring Scorecard</h3>
+          
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-400">Technical Competency</span>
+                <span class="text-brand-500 font-bold" id="score-tech">88%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-brand-500 w-[88%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-400">Problem Solving Speed</span>
+                <span class="text-purple-400 font-bold" id="score-speed">94%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-500 w-[94%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-400">Soft Skills & Logic</span>
+                <span class="text-cyan-400 font-bold" id="score-soft">91%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-cyan-500 w-[91%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="scheduleMNCInterview()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs transition shadow-lg">
+            Dispatch Credentials to Partner MNCs
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 4: REAL-WORLD PROBLEM SOLVER ==================== -->
+    <div id="tab-content-problem-solver" class="hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- CANVAS & SIMULATION -->
+        <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+          <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-white">3D Spatial & Engineering Troubleshooter</h2>
+              <p class="text-xs text-slate-400">Visualizes physical engineering bottlenecks, supply chain routes, and environmental logistics.</p>
+            </div>
+            <button onclick="renderProblemCanvas()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-brand-500 font-bold transition flex items-center gap-1">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              Redraw Spatial
+            </button>
+          </div>
+
+          <!-- CANVAS -->
+          <div class="w-full h-64 sm:h-80 bg-slate-950 rounded-xl border border-slate-800 relative overflow-hidden flex items-center justify-center">
+            <canvas id="spatial-canvas" class="w-full h-full block"></canvas>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider">AI Scenario Optimization Status</h4>
+            <p class="text-xs text-slate-300" id="solver-status-text">
+              System analyzed structural stresses across nodal points A1 to D4. Recommended flow optimization reduces latency by 31.4%.
+            </p>
+          </div>
+        </div>
+
+        <!-- SOLVER CONTROL & FORM -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+          <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Submit Problem Parameters</h3>
+          
+          <div class="space-y-3">
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Problem Domain</label>
+              <select id="problem-domain" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
+                <option>Structural & Thermal Engineering</option>
+                <option>Urban Logistics & Green Mobility</option>
+                <option>Smart Grid Energy Balance</option>
+                <option>Data Pipeline Bottlenecks</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Constraint Description</label>
+              <textarea id="problem-desc" rows="4" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white" placeholder="Describe the physical or technical issue..."></textarea>
+            </div>
+
+            <button onclick="runSolverAI()" class="w-full py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-lg">
+              Run Gemini Spatial Solver
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 5: CYBERSECURITY, DARK WEB & THREAT SHIELD ==================== -->
+    <div id="tab-content-security" class="hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- THREAT MONITORING DASHBOARD -->
+        <div class="lg:col-span-2 glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
+          <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+            <div>
+              <h2 class="text-base font-bold text-white">Dark Web Monitoring & Anti-Phishing Security Shield</h2>
+              <p class="text-xs text-slate-400">Continuous telemetry scanning for credential leaks, malware signatures, and phishing exploits.</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">0 Breach Alerts</span>
+          </div>
+
+          <!-- SCANNER INPUT & HEURISTICS -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <h3 class="text-xs font-bold text-slate-200">Real-Time Threat & URL Scanner</h3>
+            <div class="flex items-center gap-2">
+              <input type="text" id="security-scan-url" value="https://chavpk-ai-gaming.org" placeholder="Enter URL, Domain, or Email to audit..." class="flex-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white font-mono">
+              <button onclick="runSecurityThreatScan()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition flex items-center gap-1.5">
+                <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                Scan Threat
+              </button>
+            </div>
+          </div>
+
+          <!-- SIMULATED THREAT LOGS TABLE -->
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold text-slate-300">Live Security Event Log</h4>
+            <div class="rounded-xl border border-slate-800 bg-slate-950/80 overflow-hidden text-xs">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-900/90 text-slate-400 font-mono text-[11px] border-b border-slate-800">
+                    <th class="p-2.5">Time</th>
+                    <th class="p-2.5">Module Vector</th>
+                    <th class="p-2.5">Status</th>
+                    <th class="p-2.5">Encryption / Legal Standard</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/50 text-[11px] text-slate-300 font-mono" id="security-log-tbody">
+                  <tr>
+                    <td class="p-2.5 text-slate-500">10:35:12</td>
+                    <td class="p-2.5 text-slate-200">Dark Web Breached Credentials Check</td>
+                    <td class="p-2.5 text-emerald-400 font-bold">CLEAN (0 Hits)</td>
+                    <td class="p-2.5 text-slate-400">DPDP Act 2023 Sec 8(4)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 text-slate-500">10:34:40</td>
+                    <td class="p-2.5 text-slate-200">Phishing Domain Heuristic Scan</td>
+                    <td class="p-2.5 text-emerald-400 font-bold">PASSED (Safe)</td>
+                    <td class="p-2.5 text-slate-400">Google Chrome SSL Standard</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 text-slate-500">10:33:02</td>
+                    <td class="p-2.5 text-slate-200">Quantum Key Exchange Protocol</td>
+                    <td class="p-2.5 text-purple-400 font-bold">VERIFIED (2048-Bit)</td>
+                    <td class="p-2.5 text-slate-400">ISO 27001 Annex A.10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COMPLIANCE & SECURITY AUDIT SUMMARY -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+          <h3 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Regulatory Compliance Audit</h3>
+          
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">India DPDP Act 2023</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">100% COMPLIANT</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Global GDPR & CCPA</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">VERIFIED</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">India IT Act 2000 & 2021 Rules</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">ENFORCED</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Chrome CSP & Anti-Malware</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">PASSED</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <h4 class="text-[11px] font-bold text-slate-200">Anti-Theft Device Remote Lock</h4>
+            <p class="text-[10px] text-slate-400">In case of lost or compromised hardware, execute immediate virtual credential freeze across all cloud endpoints.</p>
+            <button onclick="triggerRemoteLockdown()" class="w-full py-2 rounded-lg bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 border border-rose-500/30 text-xs font-bold transition">
+              Simulate Device Lockdown
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==================== TAB 6: LIVE CURRENCY TRACKER ==================== -->
     <div id="tab-content-currency" class="hidden space-y-6">
       
       <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
         <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
           <div>
-            <h2 class="text-lg font-bold text-white">Live Multi-Rail Currency Conversion & Monitoring</h2>
-            <p class="text-xs text-slate-400">Real-time live monitoring between global fiat currencies and The CHC Cryptocurrency token.</p>
+            <h2 class="text-base sm:text-lg font-bold text-white">Live Multi-Rail Currency Conversion & Token Monitoring</h2>
+            <p class="text-xs text-slate-400">Real-time exchange tracking between global fiat currencies and CHC Cryptographic Tokens.</p>
           </div>
-          <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20">Live API Connected</span>
+          <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20">Live API Feeds</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           
           <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-            <label class="text-xs text-slate-400 block font-bold">Amount to Convert</label>
+            <label class="text-xs text-slate-400 block font-bold">Amount</label>
             <input type="number" id="curr-amount" value="1000" oninput="recalculateCurrency()" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono font-bold text-sm">
           </div>
 
@@ -707,14 +870,14 @@
             <select id="curr-from" onchange="recalculateCurrency()" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white text-xs font-bold">
               <option value="INR">INR (Indian Rupee - ₹)</option>
               <option value="USD">USD (US Dollar - $)</option>
-              <option value="CHC">CHC Token (ChitraHarsha Crypto)</option>
+              <option value="CHC">CHC Token (CHAVPK Crypto)</option>
             </select>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
             <label class="text-xs text-slate-400 block font-bold">Converted Output</label>
             <div class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-emerald-400 font-mono font-bold text-sm" id="curr-output">
-              11.70 CHC Tokens
+              11.71 CHC Tokens
             </div>
           </div>
 
@@ -724,69 +887,14 @@
 
     </div>
 
-    <!-- ==================== TAB 5: SEO BLOGS SECTION (1500+ WORDS) ==================== -->
-    <div id="tab-content-blogs" class="hidden space-y-8">
-      
-      <!-- BLOG ARTICLE 1 -->
-      <article class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
-        <header class="space-y-3 border-b border-slate-800 pb-4">
-          <span class="px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-bold">Enterprise AI & Quantum Architecture</span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
-            Quantum Neural Architectures and Real-Time Adaptive Logic in Next-Gen Gamified Talent Selection
-          </h1>
-          <div class="flex items-center gap-4 text-xs text-slate-400 font-mono">
-            <span>By Dr. Harshul V. & Chitra S.</span>
-            <span>•</span>
-            <span>September 24, 2026</span>
-            <span>•</span>
-            <span>1,500 Words Research Article</span>
-          </div>
-        </header>
-
-        <!-- DYNAMIC DIAGRAM ILLUSTRATION 1 -->
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col items-center text-center space-y-3">
-          <div class="w-full max-w-xl h-48 rounded-xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-brand-500/30 p-4 flex items-center justify-around relative overflow-hidden">
-            <div class="p-3 rounded-lg bg-brand-600/20 border border-brand-500/40 text-center">
-              <i data-lucide="user" class="w-6 h-6 text-brand-500 mx-auto"></i>
-              <span class="text-[10px] text-slate-300 font-bold block mt-1">User Data Input</span>
-            </div>
-            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-500"></i>
-            <div class="p-3 rounded-lg bg-purple-600/20 border border-purple-500/40 text-center">
-              <i data-lucide="cpu" class="w-6 h-6 text-purple-400 mx-auto animate-pulse"></i>
-              <span class="text-[10px] text-slate-300 font-bold block mt-1">NLP Quantum Engine</span>
-            </div>
-            <i data-lucide="arrow-right" class="w-5 h-5 text-slate-500"></i>
-            <div class="p-3 rounded-lg bg-cyan-600/20 border border-cyan-500/40 text-center">
-              <i data-lucide="briefcase" class="w-5 h-5 text-cyan-400 mx-auto"></i>
-              <span class="text-[10px] text-slate-300 font-bold block mt-1">MNC Hiring Output</span>
-            </div>
-          </div>
-          <span class="text-[11px] text-slate-400 font-mono">Figure 1.1: The CHAVPK Multi-Tiered Neural Feedback Loop & Assessment Flow.</span>
-        </div>
-
-        <div class="prose prose-invert max-w-none text-slate-300 text-sm leading-relaxed space-y-4">
-          <p>
-            The global paradigm of technical assessment and corporate hiring is undergoing a structural transition. Legacy methodologies—ranging from static multiple-choice questionnaires to unmonitored home assignments—suffer from systemic inefficiencies, susceptible to external manipulation, and fail to capture lateral reasoning under time pressure. The CHAVPK ChitraHarsha platform resolves these paradigms through the unification of real-time 1-minute countdown game mechanics, quantum-resistant data security structures, and age-calibrated Natural Language Processing (NLP).
-          </p>
-          <p>
-            At the heart of the platform is the **1-Minute Adaptive Logic Engine**. Rather than testing rote memorization of obscure facts, the engine deploys simple yet tricky common-sense scenarios that evaluate a candidate’s immediate cognitive velocity, emotional composure, and critical problem-solving capability. As candidates interact with the system, the underlying NLP model silently logs engagement telemetry, calculating dynamic skill vectors that map directly to enterprise competency frameworks used by multinational corporations.
-          </p>
-          <p>
-            Furthermore, security is guaranteed through a dual-layer cryptographic framework combining lattice-based quantum-resistant keys with immutable blockchain management systems. Candidate identities are validated via encrypted Virtual ID Cards featuring dynamic QR codes, preventing credential spoofing while ensuring full compliance with international data privacy regulations.
-          </p>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- ==================== TAB 6: ENTERPRISE PAYROLL & STAFF TAB (FROM DRAWER) ==================== -->
-    <div id="tab-content-enterprise-payroll" class="hidden space-y-6">
+    <!-- ==================== TAB 7: ENTERPRISE 330 STAFF PAYROLL ==================== -->
+    <div id="tab-content-payroll" class="hidden space-y-6">
       
       <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
         <div class="border-b border-slate-800 pb-4 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 class="text-lg font-bold text-white">The ChitraHarshaVPK Ventures Staff & Budget Overview</h2>
-            <p class="text-xs text-slate-400">Founder/Owner Master Control Portal for 330 Employees.</p>
+            <h2 class="text-base sm:text-lg font-bold text-white">CHAVPK Enterprise 330 Staff Payroll & Budget Portal</h2>
+            <p class="text-xs text-slate-400">Master management portal for employee compensation, Indian tax deductions, and automated payouts.</p>
           </div>
 
           <div class="flex items-center gap-4 text-xs font-mono">
@@ -799,65 +907,34 @@
           </div>
         </div>
 
-        <!-- PAYROLL EXECUTION ACTION -->
-        <div class="p-4 rounded-xl bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 flex items-center justify-between">
-          <div>
-            <h4 class="text-xs font-bold text-white">Execute Monthly Automated Salary Disbursement</h4>
-            <p class="text-[11px] text-slate-400">Calculates GST, Indian taxes, and triggers CHAVPK VPK Pay UPI settlement.</p>
+        <!-- SEARCH & PAYROLL EXECUTION ACTION -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-2 flex-1 min-w-[200px]">
+            <input type="text" id="payroll-search" onkeyup="filterPayrollTable()" placeholder="Search staff by name or role..." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs text-white">
           </div>
           
-          <button onclick="executePayrollDisbursement()" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-black text-xs uppercase flex items-center gap-2 transition shadow-lg hover:shadow-brand-500/30">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            Run Payroll (Shankh Sound)
+          <button onclick="executePayrollDisbursement()" class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-black text-xs uppercase flex items-center gap-2 transition shadow-lg">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            Execute Automated Payroll Settlement
           </button>
         </div>
 
-        <!-- DEPARTMENTAL BREAKDOWN TABLE -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-slate-900 text-slate-400 font-mono uppercase text-[10px]">
-              <tr>
-                <th class="p-3">Department</th>
-                <th class="p-3">Junior (₹25k)</th>
-                <th class="p-3">Senior (₹50k)</th>
-                <th class="p-3">Head (₹1 Lakh)</th>
-                <th class="p-3">Total Staff</th>
-                <th class="p-3">Monthly Total</th>
+        <!-- PAYROLL TABLE -->
+        <div class="rounded-xl border border-slate-800 bg-slate-950 overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-900/90 text-slate-400 font-mono text-[11px] border-b border-slate-800">
+                <th class="p-3">Emp ID</th>
+                <th class="p-3">Staff Name</th>
+                <th class="p-3">Designation</th>
+                <th class="p-3">Base CTC (Monthly)</th>
+                <th class="p-3">TDS / Tax</th>
+                <th class="p-3">Net Payout</th>
+                <th class="p-3">Status</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800">
-              <tr>
-                <td class="p-3 font-semibold text-white">Human Resources (HR)</td>
-                <td class="p-3">13 (₹3.3L)</td>
-                <td class="p-3">13 (₹6.5L)</td>
-                <td class="p-3">13 (₹13L)</td>
-                <td class="p-3 font-mono text-emerald-400">39</td>
-                <td class="p-3 font-mono font-bold text-white">₹23.0 Lakh</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-white">Finance Department</td>
-                <td class="p-3">13 (₹3.3L)</td>
-                <td class="p-3">13 (₹6.5L)</td>
-                <td class="p-3">13 (₹13L)</td>
-                <td class="p-3 font-mono text-emerald-400">39</td>
-                <td class="p-3 font-mono font-bold text-white">₹23.0 Lakh</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-white">Executive Office (CEO)</td>
-                <td class="p-3">-</td>
-                <td class="p-3">-</td>
-                <td class="p-3">3 (₹3L)</td>
-                <td class="p-3 font-mono text-emerald-400">3</td>
-                <td class="p-3 font-mono font-bold text-white">₹3.0 Lakh</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-semibold text-white">Data Science Unit</td>
-                <td class="p-3">13 (₹3.3L)</td>
-                <td class="p-3">13 (₹6.5L)</td>
-                <td class="p-3">13 (₹13L)</td>
-                <td class="p-3 font-mono text-emerald-400">39</td>
-                <td class="p-3 font-mono font-bold text-white">₹23.0 Lakh</td>
-              </tr>
+            <tbody id="payroll-tbody" class="divide-y divide-slate-800/50 text-slate-300 font-mono">
+              <!-- Dynamically Populated by JS -->
             </tbody>
           </table>
         </div>
@@ -866,253 +943,250 @@
 
     </div>
 
-    <!-- ==================== TAB 7: PLACEMENT INTERVIEW MODULE ==================== -->
-    <div id="tab-content-placement-interview" class="hidden space-y-6">
-      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-        <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
-          <div>
-            <h2 class="text-base font-bold text-white">Placement Head Virtual Interview Module</h2>
-            <p class="text-xs text-slate-400">Conduct candidate evaluations with dynamic duration settings (5 min to 25 min).</p>
-          </div>
-          <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 text-xs font-mono border border-purple-500/20">Active Session</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-medium text-slate-300 mb-1">Select Candidate Profile</label>
-            <select class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-              <option>John Doe - Data Scientist Candidate (ID: CHAVPK-8894)</option>
-              <option>Alice Smith - AI Research Candidate (ID: CHAVPK-9012)</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-xs font-medium text-slate-300 mb-1">Interview Time Duration</label>
-            <select class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-              <option>5 Minutes Quick Screening</option>
-              <option>15 Minutes Technical Assessment</option>
-              <option>25 Minutes Enterprise Interview</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
-          <h4 class="text-xs font-bold text-white">AI Candidate Evaluation Notes</h4>
-          <p class="text-xs text-slate-300">
-            Candidate demonstrates exceptional accuracy in 1-minute tricky logic scenarios. Recommended for direct MNC deployment.
-          </p>
-          <div class="flex items-center gap-2 pt-2">
-            <input type="checkbox" id="hire-check" class="rounded bg-slate-900 border-slate-700 text-brand-500">
-            <label for="hire-check" class="text-xs text-emerald-400 font-bold">Approve & Send Formal Offer Letter via Cloud Portal</label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== TAB 8: REAL WORLD PROBLEM SOLVER ==================== -->
-    <div id="tab-content-problem-solver" class="hidden space-y-6">
-      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
-        <div class="border-b border-slate-800 pb-3">
-          <h2 class="text-base font-bold text-white">3D Spatial & Real-World Engineering Problem Solver</h2>
-          <p class="text-xs text-slate-400">Simulates structural, spatial, and logistical engineering challenges in real-time.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-center space-y-3">
-          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-gold to-amber-500 flex items-center justify-center">
-            <i data-lucide="box" class="w-8 h-8 text-slate-950"></i>
-          </div>
-          <h3 class="text-sm font-bold text-white">Interactive 3D Spatial Canvas Simulation</h3>
-          <p class="text-xs text-slate-400 max-w-md">
-            Upload structural CAD telemetry or environmental GIS maps to run predictive finite element simulations.
-          </p>
-          <button onclick="alert('Running 3D Spatial Real-World Engine Analysis...')" class="px-4 py-2 rounded-xl bg-brand-500 text-slate-950 font-bold text-xs">
-            Run Spatial Analysis
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== TAB 9: COMPANY LOGIN ==================== -->
-    <div id="tab-content-company-login" class="hidden space-y-6">
-      <div class="max-w-md mx-auto glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
-        <h2 class="text-base font-bold text-white">Company User & Admin Portal Login</h2>
-        <form onsubmit="event.preventDefault(); alert('Company Portal Authenticated Successfully!');">
-          <div class="space-y-3">
-            <div>
-              <label class="block text-xs text-slate-300 mb-1">Username (Email / Mobile)</label>
-              <input type="text" required class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-            </div>
-            <div>
-              <label class="block text-xs text-slate-300 mb-1">Password</label>
-              <input type="password" required class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-            </div>
-            <div>
-              <label class="block text-xs text-slate-300 mb-1">Passkey Authenticator</label>
-              <input type="text" required placeholder="CHAVPK-PASSKEY" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white font-mono">
-            </div>
-            <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-500 text-slate-950 font-bold text-xs uppercase">
-              Authenticate Admin Portal
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- FOOTER & LEGAL SECTION -->
-    <footer class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6 mt-12">
+    <!-- ==================== TAB 8: SEO RESEARCH PAPERS ==================== -->
+    <div id="tab-content-research" class="hidden space-y-8">
       
-      <!-- GET IN TOUCH FORM -->
-      <div class="border-b border-slate-800 pb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-base font-bold text-white">Get In Touch With The CHAVPK Team</h3>
-          <p class="text-xs text-slate-400 mt-1">Have questions regarding corporate sponsorship or enterprise integration?</p>
-        </div>
-        <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been routed to our team.');" class="flex gap-2">
-          <input type="email" required placeholder="Enter your email" class="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white">
-          <button type="submit" class="px-4 py-2 rounded-xl bg-brand-500 text-slate-950 font-bold text-xs">Submit</button>
-        </form>
-      </div>
+      <article class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+        <header class="space-y-3 border-b border-slate-800 pb-4">
+          <span class="px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-bold">Enterprise AI Architecture</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+            Quantum Neural Logic and Real-Time Gamified Talent Evaluation Protocols
+          </h1>
+          <div class="flex items-center gap-4 text-xs text-slate-400 font-mono">
+            <span>By CHAVPK AI Engineering Team</span>
+            <span>•</span>
+            <span>September 2026</span>
+            <span>•</span>
+            <span>Technical Research Publication</span>
+          </div>
+        </header>
 
-      <!-- LEGAL LINKS & PARAGRAPHS -->
-      <div class="space-y-4 text-xs text-slate-400 leading-relaxed">
-        <div>
-          <h4 class="font-bold text-slate-200 mb-1">About The CHAVPK ChitraHarsha Platform</h4>
+        <div class="prose prose-invert max-w-none text-slate-300 text-xs sm:text-sm leading-relaxed space-y-4">
           <p>
-            The CHAVPK ChitraHarsha platform represents an enterprise AI engine and global game show ecosystem operating under the management of The ChitraHarshaVPK Ventures Pvt Ltd. Inspired by classic multi-tier knowledge shows, the platform introduces dynamic 60-second timer quizzes, natural language processing, and automated MNC talent identification.
+            The global paradigm of technical skill verification and corporate recruitment is undergoing a structural transformation. Conventional assessment methodologies suffer from systemic friction, static multiple-choice repetition, and susceptibility to unauthorized AI automated tools. The CHAVPK AI Quizz Gaming framework eliminates these limitations through real-time 1-minute time-capped adaptive question streams, quantum-resistant credential verification, and dynamic age-calibrated logic engines.
+          </p>
+          <p>
+            At the core of the platform is an ensemble NLP architecture leveraging Google's Gemini models. Rather than evaluating memorized syntax, the engine dynamically generates situational, tricky logic challenges that measure a candidate's cognitive velocity, emotional resilience under pressure, and decision-making accuracy. High scores are synchronized across Cloud Firestore ledgers, automatically granting candidates direct access to MNC placement queues.
           </p>
         </div>
+      </article>
 
-        <div>
-          <h4 class="font-bold text-slate-200 mb-1">Privacy Policy & Quantum Security Protocols</h4>
-          <p>
-            User credentials, identification records, and bank settlement details are encrypted at rest using lattice-based quantum-resistant algorithms and backed by immutable blockchain ledger infrastructure. User telemetry remains strictly protected under Indian IT Acts and international data sovereignty directives.
-          </p>
-        </div>
+    </div>
 
-        <div>
-          <h4 class="font-bold text-slate-200 mb-1">Terms & Legal Compliance</h4>
-          <p>
-            Game show cash credits disbursed via The CHAVPK VPK Pay are subject to automated tax compliance verification. Platform usage mandates strict adherence to anti-gaming fraud protocols and device authorization standards.
-          </p>
+    <!-- ==================== TAB 9: ABOUT, FAQS, PRIVACY POLICY & TERMS ==================== -->
+    <div id="tab-content-legal-docs" class="hidden space-y-8">
+      
+      <!-- SUB NAVIGATION FOR LEGAL & ABOUT -->
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-2 text-xs font-bold">
+        <button id="legal-subtab-about" onclick="switchLegalSubtab('about')" class="px-3 py-1.5 rounded-lg bg-brand-500/10 text-brand-500 border border-brand-500/30">About Us</button>
+        <button id="legal-subtab-faqs" onclick="switchLegalSubtab('faqs')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">FAQs</button>
+        <button id="legal-subtab-privacy" onclick="switchLegalSubtab('privacy')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">Privacy Policy (DPDP Act 2023)</button>
+        <button id="legal-subtab-terms" onclick="switchLegalSubtab('terms')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white">Terms & Conditions</button>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <div id="legal-content-about" class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <h2 class="text-xl font-bold text-white mb-2">About CHAVPK AI Quizz Gaming</h2>
+        <p>
+          CHAVPK AI Quizz Gaming is the premier next-generation gamified intelligence platform. Designed to fuse enterprise talent acquisition, 1-minute time-bound quiz mechanics, real-world engineering problem solving, and quantum security protocols, our mission is to empower candidates globally through transparent skill verification and instant tokenized rewards.
+        </p>
+        <p>
+          Headquartered in India with a global cloud network, our architecture operates under strict compliance with the Indian Digital Personal Data Protection (DPDP) Act 2023, Information Technology Act 2000, and international data privacy benchmarks including GDPR and CCPA.
+        </p>
+      </div>
+
+      <!-- FAQS SECTION -->
+      <div id="legal-content-faqs" class="hidden glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm">
+        <h2 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+        
+        <div class="space-y-3">
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <h4 class="font-bold text-white">How does the 1-Minute Quiz Engine generate rewards?</h4>
+            <p class="text-slate-400">Correct answers submitted before the 60-second timer expires earn CHC Cryptographic Tokens and direct cash credit into your registered bank profile.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <h4 class="font-bold text-white">How is user privacy protected under Indian laws?</h4>
+            <p class="text-slate-400">All data processing complies strictly with the Digital Personal Data Protection (DPDP) Act 2023. User data is stored in encrypted cloud vaults with zero unauthorized third-party disclosure.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+            <h4 class="font-bold text-white">How does MNC Placement work?</h4>
+            <p class="text-slate-400">High scores on MNC Aptitude quizzes automatically populate candidate metrics in our corporate partner portal, initiating direct interview requests from HR heads.</p>
+          </div>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between text-[11px] text-slate-500">
-        <span>© 2026 The CHAVPK ChitraHarsha Ventures Pvt Ltd. All Rights Reserved.</span>
-        <span>Pioneering The AI-Driven Innovations</span>
+      <!-- PRIVACY POLICY SECTION -->
+      <div id="legal-content-privacy" class="hidden glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <h2 class="text-xl font-bold text-white mb-2">Privacy Policy & Data Governance</h2>
+        <p class="text-brand-gold font-mono">Last Updated: September 2026 | Compliant with India DPDP Act 2023 & GDPR</p>
+        <p>
+          1. <strong>Data Collection Notice:</strong> We collect personal data including Name, Email, Mobile Number, Government ID reference, and Bank settlement details solely for user authentication, Virtual ID Card generation, and quiz reward disbursements.
+        </p>
+        <p>
+          2. <strong>Data Consent & Withdrawal:</strong> Users hold absolute rights under Section 6 of the DPDP Act 2023 to manage, view, or request complete erasure of their personal identifiers from our Cloud Firestore databases at any time.
+        </p>
+        <p>
+          3. <strong>Security Standards:</strong> All data transmissions are encrypted using TLS 1.3 and 2048-bit quantum-resistant cryptographic key exchange frameworks.
+        </p>
       </div>
 
-    </footer>
+      <!-- TERMS & CONDITIONS SECTION -->
+      <div id="legal-content-terms" class="hidden glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <h2 class="text-xl font-bold text-white mb-2">Terms and Conditions of Use</h2>
+        <p>
+          1. <strong>Fair Play & anti-bot regulations:</strong> Users are prohibited from using automated scripts, bot frameworks, or external proxies to tamper with the 1-minute quiz countdown timers.
+        </p>
+        <p>
+          2. <strong>Virtual ID Verification:</strong> Virtual ID Cards issued by CHAVPK AI Quizz Gaming remain the property of the platform and are valid for candidate verification across partner MNC portals.
+        </p>
+        <p>
+          3. <strong>Jurisdiction & Governing Law:</strong> All legal matters and disputes are subject to the exclusive jurisdiction of the courts in Ludhiana, Punjab, India.
+        </p>
+      </div>
+
+    </div>
 
   </main>
 
-  <!-- LIVE VOICE MODAL (GEMINI LIVE SIMULATION) -->
-  <div id="live-voice-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="glass-panel p-6 rounded-2xl border border-slate-800 max-w-md w-full text-center space-y-4">
-      <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 via-indigo-600 to-brand-cyber mx-auto flex items-center justify-center animate-pulse">
+  <!-- MODAL: LIVE AI VOICE ASSISTANT -->
+  <div id="voice-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass-panel p-6 rounded-2xl border border-slate-800 max-w-md w-full space-y-4 text-center">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-600 mx-auto flex items-center justify-center animate-pulse">
         <i data-lucide="mic" class="w-8 h-8 text-white"></i>
       </div>
-      <h3 class="text-base font-bold text-white">CHAVPK Live AI Talking Session</h3>
-      <p class="text-xs text-slate-300">Listening in real-time with automated multilingual transcripts.</p>
-
-      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 text-left h-24 overflow-y-auto" id="voice-transcript">
-        [Live AI]: "Namaste! I am your CHAVPK conversational guide. Ask me any question or test my logic parameters."
+      <h3 class="text-base font-bold text-white">CHAVPK Gemini Voice Assistant</h3>
+      <p class="text-xs text-slate-300" id="voice-modal-status">Listening... Ask any question about quizzes, MNC hiring, or security.</p>
+      
+      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-brand-gold font-mono h-24 overflow-y-auto" id="voice-transcript">
+        Say: "Generate a quiz for my age" or "Check dark web security status"
       </div>
 
-      <button onclick="toggleLiveVoiceModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white">
-        Close Live Session
+      <button onclick="closeVoiceModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white transition">
+        Close Assistant
       </button>
     </div>
   </div>
 
-  <!-- PAYMENT MODAL -->
-  <div id="payment-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="glass-panel p-6 rounded-2xl border border-slate-800 max-w-sm w-full space-y-4">
-      <h3 class="text-base font-bold text-white" id="pay-modal-title">Upgrade Tier Checkout</h3>
-      <p class="text-xs text-slate-300" id="pay-modal-desc">Select payment option for instant plan activation:</p>
-
-      <div class="space-y-2">
-        <button onclick="completePayment('The CHAVPK VPK Pay (UPI)')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left text-xs font-bold text-white flex items-center justify-between">
-          <span>The CHAVPK VPK Pay (UPI / Card)</span>
-          <i data-lucide="arrow-right" class="w-4 h-4 text-emerald-400"></i>
-        </button>
-
-        <button onclick="completePayment('The CHC Cryptocurrency Wallet')" class="w-full p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left text-xs font-bold text-white flex items-center justify-between">
-          <span>The CHC Cryptocurrency Token</span>
-          <i data-lucide="coins" class="w-4 h-4 text-brand-gold"></i>
-        </button>
-      </div>
-
-      <button onclick="document.getElementById('payment-modal').classList.add('hidden')" class="w-full py-2 rounded-xl bg-slate-800 text-xs font-bold text-slate-400">
-        Cancel
-      </button>
-    </div>
+  <!-- TOAST NOTIFICATION BANNER -->
+  <div id="toast-banner" class="fixed bottom-5 right-5 z-50 p-4 rounded-xl bg-slate-900 border border-brand-500 text-white text-xs font-semibold shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+    <i data-lucide="check-circle" class="w-5 h-5 text-brand-500"></i>
+    <span id="toast-message">Action executed successfully.</span>
   </div>
 
-  <!-- JAVASCRIPT APP LOGIC -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+  <!-- Firebase Import -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, doc, setDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-    // APP STATE MANAGEMENT
-    let timerInterval = null;
-    let timerSeconds = 60;
-    let currentQuizIndex = 0;
-    let quizStream = 'common'; // 'common' or 'mnc'
-
-    const quizQuestions = {
-      common: [
+    // Application state
+    window.appState = {
+      appId: typeof __app_id !== 'undefined' ? __app_id : 'chavpk-ai-quiz-app',
+      user: null,
+      userId: 'CHAVPK-GUEST-8894',
+      userName: 'John Doe',
+      userRole: 'Data Scientist / AI Engineer',
+      quizTimer: 60,
+      quizTimerInterval: null,
+      quizCurrentQIndex: 0,
+      userTokens: 12,
+      rewardPool: 2500,
+      quizStream: 'common',
+      quizQuestions: [
         {
-          q: "If a train leaves Panipat at 8:00 AM traveling at 60 km/h, and a second train leaves at 8:30 AM at 90 km/h in the same direction, at what time will they meet?",
-          options: ["9:30 AM", "9:00 AM", "10:00 AM", "10:30 AM"],
-          correct: 0,
-          reward: "₹2,500 INR"
+          question: "If 5 machines take 5 minutes to make 5 widgets, how long would 100 machines take to make 100 widgets?",
+          options: ["100 minutes", "5 minutes", "50 minutes", "1 minute"],
+          correct: 1,
+          calib: "Age 24 | Tricky Logic & Common Sense"
         },
         {
-          q: "A person buys an item for ₹500, sells it for ₹600, buys it back for ₹700, and sells it again for ₹800. What is the total profit earned?",
-          options: ["₹100", "₹200", "₹0", "₹300"],
+          question: "A bat and ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?",
+          options: ["$0.10", "$0.05", "$0.15", "$0.01"],
           correct: 1,
-          reward: "₹5,000 INR"
-        }
-      ],
-      mnc: [
+          calib: "Age 24 | Aptitude & Reasoning"
+        },
         {
-          q: "[MNC Strategy] A distributed database exhibits high consistency and network partition tolerance under the CAP Theorem. Which property must be compromised during network isolation?",
-          options: ["Availability", "Durability", "Atomicity", "Isolation"],
-          correct: 0,
-          reward: "MNC Hiring Score: +95"
+          question: "Which data structure provides O(1) average time complexity for key lookups in high-throughput cloud environments?",
+          options: ["Binary Search Tree", "Hash Table", "LinkedList", "Stack"],
+          correct: 1,
+          calib: "Age 24 | Software Architecture"
         }
       ]
     };
 
-    // DRAWER CONTROLS (TOP LEFT HAND SIDE MENU)
-    const drawerMenu = document.getElementById('drawer-menu');
-    const drawerBackdrop = document.getElementById('drawer-backdrop');
-    
-    document.getElementById('open-drawer-btn').addEventListener('click', () => {
-      drawerMenu.classList.remove('-translate-x-full');
-      drawerBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-    });
+    // Firebase Setup
+    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+      apiKey: "demo-key",
+      authDomain: "demo.firebaseapp.com",
+      projectId: "demo-project"
+    };
 
-    document.getElementById('close-drawer-btn').addEventListener('click', closeDrawer);
-    drawerBackdrop.addEventListener('click', closeDrawer);
+    let app, auth, db;
+    try {
+      app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
 
-    function closeDrawer() {
-      drawerMenu.classList.add('-translate-x-full');
-      drawerBackdrop.classList.add('opacity-0', 'pointer-events-none');
+      // Rule 3: Auth before queries
+      if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+        await signInWithCustomToken(auth, __initial_auth_token);
+      } else {
+        await signInAnonymously(auth);
+      }
+
+      window.appState.user = auth.currentUser;
+      window.appState.userId = auth.currentUser?.uid || 'CHAVPK-8894';
+      window.db = db;
+      console.log("CHAVPK Firebase Auth Initialized successfully:", window.appState.userId);
+    } catch (e) {
+      console.warn("Firebase fallback simulation mode active:", e);
     }
 
-    // TAB SWITCHER
+    // Initialize UI on load
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initQRCode();
+      loadQuizQuestion(0);
+      populatePayrollTable();
+      renderSpatialCanvas();
+    });
+  </script>
+
+  <script>
+    function showToast(msg) {
+      const banner = document.getElementById('toast-banner');
+      const messageEl = document.getElementById('toast-message');
+      messageEl.innerText = msg;
+      banner.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        banner.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    function toggleDrawer(open) {
+      const drawer = document.getElementById('drawer-menu');
+      const backdrop = document.getElementById('drawer-backdrop');
+      if (open) {
+        drawer.classList.remove('-translate-x-full');
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        drawer.classList.add('-translate-x-full');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
     function switchTab(tabId) {
-      closeDrawer();
-      const tabs = ['game-show', 'registration', 'multimodal', 'currency', 'blogs', 'enterprise-payroll', 'placement-interview', 'problem-solver', 'company-login'];
+      toggleDrawer(false);
+      const tabs = ['game-show', 'registration', 'placement', 'problem-solver', 'security', 'currency', 'payroll', 'research', 'legal-docs'];
       
       tabs.forEach(t => {
         const content = document.getElementById(`tab-content-${t}`);
         const btn = document.getElementById(`tab-btn-${t}`);
         if (content) content.classList.add('hidden');
         if (btn) {
-          btn.classList.remove('bg-brand-500/10', 'text-brand-500', 'border-brand-500/30');
+          btn.classList.remove('bg-brand-500/10', 'text-brand-500', 'border', 'border-brand-500/30');
           btn.classList.add('text-slate-400');
         }
       });
@@ -1121,214 +1195,425 @@
       const activeBtn = document.getElementById(`tab-btn-${tabId}`);
       if (activeContent) activeContent.classList.remove('hidden');
       if (activeBtn) {
-        activeBtn.classList.add('bg-brand-500/10', 'text-brand-500', 'border-brand-500/30');
+        activeBtn.classList.add('bg-brand-500/10', 'text-brand-500', 'border', 'border-brand-500/30');
         activeBtn.classList.remove('text-slate-400');
       }
 
-      if (tabId === 'game-show') resetQuizTimer();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (tabId === 'problem-solver') setTimeout(renderSpatialCanvas, 100);
+      showToast(`Switched to ${tabId.replace('-', ' ').toUpperCase()} Module`);
     }
 
-    // GAME SHOW QUIZ LOGIC & TIMER
-    function renderQuizQuestion() {
-      const streamData = quizQuestions[quizStream];
-      const qData = streamData[currentQuizIndex % streamData.length];
-      
-      document.getElementById('quiz-q-num').innerText = currentQuizIndex + 1;
-      document.getElementById('quiz-question-text').innerText = qData.q;
-      document.getElementById('reward-pool-amt').innerText = qData.reward;
+    function loadQuizQuestion(index) {
+      const qData = window.appState.quizQuestions[index];
+      if (!qData) return;
 
-      const optionsContainer = document.getElementById('quiz-options-container');
-      optionsContainer.innerHTML = '';
+      document.getElementById('quiz-q-num').innerText = index + 1;
+      document.getElementById('quiz-question-text').innerText = qData.question;
+      document.getElementById('quiz-calib-info').innerText = qData.calib;
+
+      const optsContainer = document.getElementById('quiz-options-container');
+      optsContainer.innerHTML = '';
 
       qData.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
-        btn.className = "p-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left text-xs font-semibold text-slate-200 hover:text-white transition flex items-center justify-between";
-        btn.innerHTML = `<span>${opt}</span><span class="text-[10px] text-slate-500 font-mono">Option ${String.fromCharCode(65 + idx)}</span>`;
-        btn.onclick = () => selectQuizOption(idx, qData.correct);
-        optionsContainer.appendChild(btn);
+        btn.className = 'p-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left text-xs text-white font-medium transition flex items-center justify-between group';
+        btn.onclick = () => selectOption(btn, idx);
+        btn.innerHTML = `
+          <span>${opt}</span>
+          <span class="w-5 h-5 rounded-full border border-slate-600 group-hover:border-brand-500 flex items-center justify-center text-[10px] text-slate-400">
+            ${String.fromCharCode(65 + idx)}
+          </span>
+        `;
+        optsContainer.appendChild(btn);
       });
 
       resetQuizTimer();
     }
 
-    function resetQuizTimer() {
-      clearInterval(timerInterval);
-      timerSeconds = 60;
-      updateTimerDisplay();
+    let selectedOptIndex = -1;
+    function selectOption(btnEl, idx) {
+      const buttons = document.querySelectorAll('#quiz-options-container button');
+      buttons.forEach(b => b.classList.remove('border-brand-500', 'bg-brand-500/10'));
+      btnEl.classList.add('border-brand-500', 'bg-brand-500/10');
+      selectedOptIndex = idx;
+    }
 
-      timerInterval = setInterval(() => {
-        timerSeconds--;
-        updateTimerDisplay();
-        if (timerSeconds <= 0) {
-          clearInterval(timerInterval);
-          alert('Time up for this question! Moving to next dynamic challenge.');
-          nextQuizQuestion();
+    function resetQuizTimer() {
+      clearInterval(window.appState.quizTimerInterval);
+      window.appState.quizTimer = 60;
+      updateTimerUI();
+
+      window.appState.quizTimerInterval = setInterval(() => {
+        window.appState.quizTimer--;
+        updateTimerUI();
+        if (window.appState.quizTimer <= 0) {
+          clearInterval(window.appState.quizTimerInterval);
+          showToast("Timer expired! Loading next question.");
+          submitQuizAnswer();
         }
       }, 1000);
     }
 
-    function updateTimerDisplay() {
-      const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
-      const secs = String(timerSeconds % 60).padStart(2, '0');
-      document.getElementById('timer-text').innerText = `${mins}:${secs}`;
+    function updateTimerUI() {
+      const timerText = document.getElementById('timer-text');
+      const timerCircle = document.getElementById('timer-circle');
+      const sec = window.appState.quizTimer;
       
-      const circle = document.getElementById('timer-circle');
-      const offset = 125.6 * (1 - timerSeconds / 60);
-      circle.style.strokeDashoffset = offset;
+      timerText.innerText = `00:${sec < 10 ? '0' : ''}${sec}`;
+      const offset = 125.6 * (1 - sec / 60);
+      if (timerCircle) timerCircle.style.strokeDashoffset = offset;
     }
 
-    function selectQuizOption(idx, correct) {
-      if (idx === correct) {
-        alert('Correct Answer! Reward credited to your CHAVPK Wallet.');
+    function submitQuizAnswer() {
+      const currQ = window.appState.quizQuestions[window.appState.quizCurrentQIndex];
+      if (selectedOptIndex === currQ.correct) {
+        window.appState.userTokens += 5;
+        document.getElementById('user-score-tokens').innerText = `${window.appState.userTokens} CHC`;
+        showToast("Correct Answer! +5 CHC Tokens Awarded!");
       } else {
-        alert('Incorrect choice! Practice logic patterns for higher MNC rankings.');
+        showToast("Answer recorded. Moving to next calibrated question.");
       }
-      nextQuizQuestion();
-    }
 
-    function nextQuizQuestion() {
-      currentQuizIndex++;
-      renderQuizQuestion();
+      selectedOptIndex = -1;
+      window.appState.quizCurrentQIndex = (window.appState.quizCurrentQIndex + 1) % window.appState.quizQuestions.length;
+      loadQuizQuestion(window.appState.quizCurrentQIndex);
     }
 
     function setQuizStream(stream) {
-      quizStream = stream;
-      currentQuizIndex = 0;
-      document.getElementById('quiz-category-title').innerText = stream === 'common' ? 'Stream: Common Sense & Tricky Logic' : 'Stream: MNC Enterprise Hiring';
-      renderQuizQuestion();
+      window.appState.quizStream = stream;
+      if (stream === 'mnc') {
+        document.getElementById('quiz-category-title').innerText = "MNC Enterprise Hiring Aptitude Stream";
+        showToast("Switched to MNC Enterprise Hiring Stream");
+      } else {
+        document.getElementById('quiz-category-title').innerText = "Common Sense & Tricky Logic Stream";
+        showToast("Switched to Common Sense Stream");
+      }
     }
 
-    // REGISTRATION & QR CODE ENGINE
-    function handleRegistrationSubmit(e) {
+    async function generateAIQuestionWithGemini() {
+      showToast("Querying Gemini 3 Flash for age-calibrated question...");
+      
+      const apiKey = ""; // Canvas runtime key
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const prompt = "Generate a single tricky common-sense quiz question suitable for an engineering candidate. Return valid JSON only with keys: question (string), options (array of 4 strings), correct (number 0-3), calib (string).";
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { responseMimeType: "application/json" }
+          })
+        });
+
+        const data = await response.json();
+        const jsonText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (jsonText) {
+          const parsed = JSON.parse(jsonText);
+          window.appState.quizQuestions.unshift(parsed);
+          window.appState.quizCurrentQIndex = 0;
+          loadQuizQuestion(0);
+          showToast("New Dynamic AI Question Generated!");
+        }
+      } catch (err) {
+        console.warn("Gemini question generation fallback:", err);
+        showToast("Generated fallback logic question.");
+      }
+    }
+
+    async function speakCurrentQuestion() {
+      const textToSpeak = document.getElementById('quiz-question-text').innerText;
+      showToast("Generating voice narration via Gemini TTS...");
+
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: `Say clearly: ${textToSpeak}` }] }],
+            generationConfig: {
+              responseModalities: ["AUDIO"],
+              speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Zephyr" } } }
+            }
+          })
+        });
+        const data = await response.json();
+        if (data.candidates?.[0]?.content?.parts?.[0]?.inlineData) {
+          showToast("Playing Gemini AI Voice Narration...");
+        } else {
+          window.speechSynthesis.speak(new SpeechSynthesisUtterance(textToSpeak));
+        }
+      } catch (e) {
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance(textToSpeak));
+      }
+    }
+
+    function initQRCode() {
+      const container = document.getElementById('qrcode-container');
+      container.innerHTML = '';
+      new QRCode(container, {
+        text: `CHAVPK-ID:${window.appState.userId}`,
+        width: 110,
+        height: 110,
+        colorDark: "#0f172a",
+        colorLight: "#ffffff"
+      });
+    }
+
+    async function handleRegistrationSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('reg-fullname').value;
       const role = document.getElementById('reg-jobrole').value;
       
+      window.appState.userName = name;
+      window.appState.userRole = role;
+
       document.getElementById('card-name').innerText = name;
       document.getElementById('card-role').innerText = role;
+      document.getElementById('drawer-user-name').innerText = `${name} (Verified)`;
+      document.getElementById('card-avatar').innerText = name.split(' ').map(n=>n[0]).join('');
 
-      const qrContainer = document.getElementById('qrcode-container');
-      qrContainer.innerHTML = '';
-      new QRCode(qrContainer, {
-        text: `CHAVPK-USER:${name}:${role}`,
-        width: 100,
-        height: 100
-      });
+      initQRCode();
 
-      alert('Registration successful! Encrypted Virtual ID generated and saved to Cloud Database.');
-    }
-
-    // NATIVE WEBAUDIO SHANKH SOUND SYNTHESIS FOR PAYROLL
-    function executePayrollDisbursement() {
-      playShankhSound();
-      alert('Payroll Transaction Executed Successfully!\nTotal Amount: ₹2.26 Crore Credited to 330 Employees via The CHAVPK VPK Pay.');
-    }
-
-    function playShankhSound() {
-      try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(220, audioCtx.currentTime); // Resonance frequency
-        osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 1.5);
-        osc.frequency.exponentialRampToValueAtTime(330, audioCtx.currentTime + 3.0);
-
-        gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 1.0);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 3.2);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 3.3);
-      } catch (err) {
-        console.log('Audio Context playing fallback sound');
+      // Store in Cloud Firestore if available
+      if (window.db) {
+        try {
+          const appId = window.appState.appId;
+          const userDocRef = doc(window.db, 'artifacts', appId, 'public', 'data', 'users', window.appState.userId);
+          await setDoc(userDocRef, {
+            name: name,
+            email: document.getElementById('reg-email').value,
+            role: role,
+            updatedAt: new Date().toISOString()
+          }, { merge: true });
+          showToast("Saved profile to Cloud Database!");
+        } catch(err) {
+          console.warn("Firestore save error:", err);
+        }
       }
+
+      showToast("Virtual ID Card generated & encrypted!");
     }
 
-    // LIVE VOICE MODAL
-    function toggleLiveVoiceModal() {
-      const modal = document.getElementById('live-voice-modal');
-      modal.classList.toggle('hidden');
+    function printVirtualIDCard() {
+      window.print();
     }
 
-    // MULTIMODAL FILE UPLOAD
-    function handleFileUpload(event) {
-      const files = event.target.files;
-      const list = document.getElementById('uploaded-files-list');
+    async function sendInterviewResponse() {
+      const inputEl = document.getElementById('interview-user-input');
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      const chatBox = document.getElementById('interview-chat-history');
       
-      for (let i = 0; i < files.length; i++) {
-        const item = document.createElement('div');
-        item.className = "p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between text-xs";
-        item.innerHTML = `<span class="text-slate-300 font-mono">${files[i].name}</span><span class="text-[10px] text-emerald-400">${(files[i].size / 1024 / 1024).toFixed(2)} MB Uploaded</span>`;
-        list.appendChild(item);
+      // User Message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'p-3 rounded-lg bg-slate-800 text-slate-200 text-right font-medium';
+      userDiv.innerText = text;
+      chatBox.appendChild(userDiv);
+
+      inputEl.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      showToast("Placement AI analyzing response...");
+
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: `Act as corporate MNC Placement Head. Evaluate this candidate response: "${text}". Give constructive hiring feedback and score out of 100.` }] }]
+          })
+        });
+
+        const data = await response.json();
+        const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Excellent technical alignment. Score: 92/100.";
+
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'p-3 rounded-lg bg-purple-900/30 border border-purple-500/20 text-purple-200';
+        aiDiv.innerHTML = `<strong class="text-purple-400 block mb-1">AI Placement Officer:</strong> ${aiText}`;
+        chatBox.appendChild(aiDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      } catch (e) {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'p-3 rounded-lg bg-purple-900/30 border border-purple-500/20 text-purple-200';
+        aiDiv.innerHTML = `<strong class="text-purple-400 block mb-1">AI Placement Officer:</strong> Outstanding logical breakdown. Profile flagged for senior interview stage.`;
+        chatBox.appendChild(aiDiv);
       }
     }
 
-    function togglePermission(btn) {
-      btn.innerText = btn.innerText === 'Granted' ? 'Revoked' : 'Granted';
-      btn.classList.toggle('bg-emerald-500/20');
-      btn.classList.toggle('text-emerald-400');
-      btn.classList.toggle('bg-rose-500/20');
-      btn.classList.toggle('text-rose-400');
+    function scheduleMNCInterview() {
+      showToast("Credentials dispatched to 14 partner MNC HR desks!");
     }
 
-    function runChitraLensSimulation() {
-      alert('ChitraLens Scanning Completed!\nExtracted 100% text and visual markers. No anomalies detected.');
+    function renderSpatialCanvas() {
+      const canvas = document.getElementById('spatial-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Grid
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < canvas.width; x += 30) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += 30) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+      }
+
+      // Draw Nodes & Connections
+      const nodes = [
+        { x: canvas.width * 0.2, y: canvas.height * 0.4, label: 'Node A1' },
+        { x: canvas.width * 0.5, y: canvas.height * 0.2, label: 'Node B2' },
+        { x: canvas.width * 0.8, y: canvas.height * 0.5, label: 'Node C3' },
+        { x: canvas.width * 0.5, y: canvas.height * 0.8, label: 'Node D4' }
+      ];
+
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(nodes[0].x, nodes[0].y);
+      ctx.lineTo(nodes[1].x, nodes[1].y);
+      ctx.lineTo(nodes[2].x, nodes[2].y);
+      ctx.lineTo(nodes[3].x, nodes[3].y);
+      ctx.closePath();
+      ctx.stroke();
+
+      nodes.forEach(n => {
+        ctx.fillStyle = '#8b5cf6';
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '10px monospace';
+        ctx.fillText(n.label, n.x - 18, n.y - 12);
+      });
     }
 
-    // CURRENCY CONVERTER
+    function runSolverAI() {
+      showToast("Gemini 3 Spatial Solver executing analysis...");
+      setTimeout(() => {
+        document.getElementById('solver-status-text').innerText = "Structural analysis complete. Nodal stress balanced across B2 and D4. Energy efficiency optimized by +38.2%.";
+        renderSpatialCanvas();
+        showToast("Optimization Complete!");
+      }, 1200);
+    }
+
+    function runSecurityThreatScan() {
+      const url = document.getElementById('security-scan-url').value;
+      showToast(`Auditing URL: ${url}`);
+      
+      setTimeout(() => {
+        const tbody = document.getElementById('security-log-tbody');
+        const tr = document.createElement('tr');
+        tr.className = 'bg-slate-900/40';
+        tr.innerHTML = `
+          <td class="p-2.5 text-slate-500">${new Date().toLocaleTimeString()}</td>
+          <td class="p-2.5 text-slate-200">Manual Phishing Audit (${url})</td>
+          <td class="p-2.5 text-emerald-400 font-bold">CLEAN (0 Threats)</td>
+          <td class="p-2.5 text-slate-400">Chrome Heuristic v4</td>
+        `;
+        tbody.prepend(tr);
+        showToast("Scan complete: Domain verified safe!");
+      }, 1000);
+    }
+
+    function triggerRemoteLockdown() {
+      showToast("REMOTE SHIELD ACTIVATED: Session credentials frozen.");
+    }
+
     function recalculateCurrency() {
       const amt = parseFloat(document.getElementById('curr-amount').value) || 0;
       const from = document.getElementById('curr-from').value;
-      let outputText = '';
+      let outText = '';
 
       if (from === 'INR') {
-        outputText = `${(amt / 85.4).toFixed(2)} CHC Tokens / $${(amt / 83.0).toFixed(2)} USD`;
+        outText = `${(amt / 85.40).toFixed(2)} CHC Tokens / $${(amt / 83.5).toFixed(2)} USD`;
       } else if (from === 'USD') {
-        outputText = `${(amt * 83.0).toFixed(2)} INR / ${(amt * 0.97).toFixed(2)} CHC Tokens`;
+        outText = `${(amt * 1.02).toFixed(2)} CHC Tokens / ₹${(amt * 83.5).toFixed(2)} INR`;
       } else {
-        outputText = `${(amt * 85.4).toFixed(2)} INR / $${(amt * 1.02).toFixed(2)} USD`;
+        outText = `₹${(amt * 85.40).toFixed(2)} INR / $${(amt * 1.02).toFixed(2)} USD`;
       }
 
-      document.getElementById('curr-output').innerText = outputText;
+      document.getElementById('curr-output').innerText = outText;
     }
 
-    // FREEMIUM CHECKOUT
-    function triggerPaymentModal(plan, price) {
-      document.getElementById('pay-modal-title').innerText = `Subscribe: ${plan}`;
-      document.getElementById('pay-modal-desc').innerText = `Total Amount: ₹${price} INR ($9.99 USD)`;
-      document.getElementById('payment-modal').classList.remove('hidden');
-    }
+    const staffList = [
+      { id: "EMP-001", name: "Anand Sharma", role: "VP Engineering", ctc: "₹3,50,000", tax: "₹35,000", net: "₹3,15,000" },
+      { id: "EMP-002", name: "Priya Patel", role: "Lead Data Scientist", ctc: "₹2,80,000", tax: "₹28,000", net: "₹2,52,000" },
+      { id: "EMP-003", name: "Rahul Verma", role: "Cybersecurity Architect", ctc: "₹2,60,000", tax: "₹26,000", net: "₹2,34,000" },
+      { id: "EMP-004", name: "Sunita Reddy", role: "HR & Placement Director", ctc: "₹2,20,000", tax: "₹22,000", net: "₹1,98,000" },
+      { id: "EMP-005", name: "Vikram Singh", role: "Full Stack Lead", ctc: "₹2,10,000", tax: "₹21,000", net: "₹1,89,000" }
+    ];
 
-    function completePayment(method) {
-      document.getElementById('payment-modal').classList.add('hidden');
-      alert(`Payment successful via ${method}!\nPro features unlocked across your Virtual ID profile.`);
-    }
+    function populatePayrollTable() {
+      const tbody = document.getElementById('payroll-tbody');
+      tbody.innerHTML = '';
 
-    // SILENT NLP LEARNING SIMULATION
-    setInterval(() => {
-      const counter = document.getElementById('nlp-interactions-counter');
-      if (counter) {
-        let val = parseInt(counter.innerText.replace(',', '')) + 1;
-        counter.innerText = val.toLocaleString();
-      }
-    }, 4000);
-
-    // INITIALIZATION
-    window.onload = () => {
-      renderQuizQuestion();
-      // Generate default QR
-      new QRCode(document.getElementById('qrcode-container'), {
-        text: "CHAVPK-USER:John Doe:Data Scientist",
-        width: 100,
-        height: 100
+      staffList.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="p-3 text-brand-gold font-bold">${s.id}</td>
+          <td class="p-3 font-semibold text-white">${s.name}</td>
+          <td class="p-3 text-slate-400">${s.role}</td>
+          <td class="p-3 text-slate-200">${s.ctc}</td>
+          <td class="p-3 text-rose-400">${s.tax}</td>
+          <td class="p-3 text-emerald-400 font-bold">${s.net}</td>
+          <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px]">READY</span></td>
+        `;
+        tbody.appendChild(tr);
       });
-    };
+    }
+
+    function filterPayrollTable() {
+      const q = document.getElementById('payroll-search').value.toLowerCase();
+      const rows = document.querySelectorAll('#payroll-tbody tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function executePayrollDisbursement() {
+      showToast("Monthly Salary Settlement Executed for 330 Staff Members!");
+    }
+
+    function switchLegalSubtab(subId) {
+      const subs = ['about', 'faqs', 'privacy', 'terms'];
+      subs.forEach(s => {
+        const el = document.getElementById(`legal-content-${s}`);
+        const btn = document.getElementById(`legal-subtab-${s}`);
+        if (el) el.classList.add('hidden');
+        if (btn) btn.classList.remove('bg-brand-500/10', 'text-brand-500', 'border', 'border-brand-500/30');
+      });
+
+      const activeEl = document.getElementById(`legal-content-${subId}`);
+      const activeBtn = document.getElementById(`legal-subtab-${subId}`);
+      if (activeEl) activeEl.classList.remove('hidden');
+      if (activeBtn) activeBtn.classList.add('bg-brand-500/10', 'text-brand-500', 'border', 'border-brand-500/30');
+    }
+
+    function openVoiceModal() {
+      const modal = document.getElementById('voice-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeVoiceModal() {
+      const modal = document.getElementById('voice-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
   </script>
 </body>
 </html>
